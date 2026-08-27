@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Consulte benefícios disponíveis</title>
+  <title>Consulta de Benefícios</title>
 
   <meta
     name="description"
-    content="Consulte informações sobre benefícios e descontos disponíveis."
+    content="Consulte informações e condições disponíveis de forma simples e rápida."
   >
 
   <style>
@@ -18,22 +18,12 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --rosa: #d7196b;
-      --rosa-escuro: #a90f52;
-      --texto: #29212a;
-      --cinza: #77717a;
-    }
-
-    html {
-      min-height: 100%;
-    }
-
     body {
       min-height: 100vh;
       min-height: 100svh;
 
       font-family:
+        Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -43,83 +33,115 @@
 
       background:
         linear-gradient(
-          145deg,
-          rgba(91, 32, 63, 0.52),
-          rgba(184, 72, 119, 0.30)
+          180deg,
+          rgba(48, 15, 38, .58),
+          rgba(126, 24, 79, .42)
         ),
-        url("fundo.jpg") center center / cover no-repeat;
+        url("fundo.jpg") center / cover no-repeat;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 18px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      position: relative;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 32px;
+
+      padding: 34px 23px 25px;
+
+      text-align: center;
+
+      box-shadow:
+        0 25px 70px rgba(25, 5, 18, .30);
+
+      animation: entrada .6s ease;
+    }
+
+    @keyframes entrada {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .barra {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 6px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #b80e5b,
+          #e62982
+        );
+    }
+
+    .icone {
+      width: 62px;
+      height: 62px;
+
+      margin: 8px auto 20px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding:
-        max(18px, env(safe-area-inset-top))
-        16px
-        max(18px, env(safe-area-inset-bottom));
+      border-radius: 20px;
+
+      background: #fbe8f2;
+
+      color: #c31666;
+
+      font-size: 29px;
     }
 
-    .pagina {
-      width: 100%;
-      max-width: 430px;
-    }
+    .etiqueta {
+      display: inline-block;
 
-    .card {
-      width: 100%;
-
-      background: rgba(255, 255, 255, 0.97);
+      padding: 7px 13px;
 
       border-radius: 30px;
 
-      padding: 38px 22px 25px;
+      background: #fcecf4;
 
-      text-align: center;
+      color: #a90e54;
 
-      box-shadow:
-        0 22px 55px rgba(45, 12, 30, 0.25);
+      font-size: 11px;
 
-      animation: entrar 0.55s ease-out;
-    }
+      font-weight: 800;
 
-    @keyframes entrar {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(0.98);
-      }
+      letter-spacing: .8px;
 
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .mini-titulo {
-      display: inline-flex;
-
-      align-items: center;
-      justify-content: center;
-
-      min-height: 32px;
-
-      padding: 6px 14px;
-
-      border-radius: 50px;
-
-      background: #fce8f2;
-
-      color: var(--rosa-escuro);
-
-      font-size: 13px;
-
-      font-weight: 700;
-
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      color: var(--rosa);
+      color: #241b22;
 
-      font-size: 36px;
+      font-size: 35px;
 
       line-height: 1.08;
 
@@ -127,86 +149,113 @@
 
       font-weight: 800;
 
-      margin-bottom: 20px;
+      margin-bottom: 17px;
+    }
+
+    h1 strong {
+      color: #c51667;
     }
 
     .descricao {
-      color: var(--texto);
+      color: #706970;
 
-      font-size: 19px;
+      font-size: 17px;
 
-      line-height: 1.45;
+      line-height: 1.5;
 
-      margin: 0 auto 30px;
+      max-width: 340px;
 
-      max-width: 350px;
+      margin: 0 auto 27px;
     }
 
     .botao {
-      width: 100%;
-
-      min-height: 68px;
-
       display: flex;
 
       align-items: center;
       justify-content: center;
 
-      gap: 10px;
+      width: 100%;
 
-      padding: 16px 20px;
+      min-height: 66px;
 
-      border-radius: 19px;
+      padding: 15px 18px;
+
+      border-radius: 18px;
 
       background:
         linear-gradient(
           135deg,
-          #e52a7c,
-          #c81362
+          #e1287b,
+          #c31363
         );
 
       color: #fff;
 
       text-decoration: none;
 
-      font-size: 21px;
+      font-size: 20px;
 
       font-weight: 750;
 
       box-shadow:
-        0 10px 25px rgba(200, 19, 98, 0.28);
+        0 12px 28px rgba(195, 19, 99, .28);
 
-      transition:
-        transform 0.18s ease,
-        box-shadow 0.18s ease;
+      transition: .2s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 16px 32px rgba(195, 19, 99, .34);
     }
 
     .botao:active {
-      transform: scale(0.98);
+      transform: scale(.98);
     }
 
     .seta {
-      font-size: 25px;
-      line-height: 1;
+      margin-left: 10px;
+
+      font-size: 24px;
+
+      transition: transform .2s ease;
     }
 
-    .aviso {
-      margin-top: 18px;
-
-      color: var(--cinza);
-
-      font-size: 13px;
-
-      line-height: 1.45;
+    .botao:hover .seta {
+      transform: translateX(4px);
     }
 
-    .divisor {
-      width: 100%;
+    .confira {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 17px;
+
+      color: #777077;
+
+      font-size: 12px;
+    }
+
+    .ponto {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #35a66f;
+    }
+
+    .linha {
       height: 1px;
 
-      background: #eee8ec;
+      background: #eee9ed;
 
-      margin: 25px 0 18px;
+      margin: 23px 0 17px;
     }
 
     .links {
@@ -214,46 +263,52 @@
 
       justify-content: center;
 
-      align-items: center;
-
       flex-wrap: wrap;
 
-      gap: 10px 18px;
+      gap: 9px 18px;
     }
 
     .links a {
-      color: #7f3158;
+      color: #7b3156;
 
       font-size: 12px;
 
       text-decoration: none;
     }
 
-    .links a:active {
-      opacity: 0.65;
+    .links a:hover {
+      text-decoration: underline;
     }
 
     .rodape {
-      margin-top: 17px;
+      margin-top: 15px;
 
-      color: #a19ba0;
+      color: #a09aa0;
 
-      font-size: 10.5px;
+      font-size: 10px;
 
       line-height: 1.5;
     }
 
-    /* Celulares pequenos */
-
     @media (max-width: 360px) {
 
-      .card {
-        padding: 31px 18px 21px;
-        border-radius: 26px;
+      body {
+        padding: 12px;
       }
 
-      .mini-titulo {
-        margin-bottom: 17px;
+      .card {
+        padding: 29px 18px 21px;
+
+        border-radius: 27px;
+      }
+
+      .icone {
+        width: 55px;
+        height: 55px;
+
+        font-size: 25px;
+
+        margin-bottom: 16px;
       }
 
       h1 {
@@ -261,44 +316,32 @@
       }
 
       .descricao {
-        font-size: 17px;
-        margin-bottom: 25px;
+        font-size: 16px;
       }
 
       .botao {
-        min-height: 62px;
-        font-size: 19px;
+        min-height: 61px;
+
+        font-size: 18px;
       }
     }
 
-    /* Telas maiores */
+    @media (min-width: 700px) {
 
-    @media (min-width: 600px) {
-
-      body {
-        padding: 30px;
-      }
-
-      .pagina {
-        max-width: 500px;
+      .wrapper {
+        max-width: 470px;
       }
 
       .card {
-        padding: 55px 45px 35px;
-        border-radius: 34px;
+        padding: 48px 38px 30px;
       }
 
       h1 {
-        font-size: 46px;
+        font-size: 43px;
       }
 
       .descricao {
-        font-size: 21px;
-      }
-
-      .botao {
-        min-height: 74px;
-        font-size: 23px;
+        font-size: 18px;
       }
     }
   </style>
@@ -306,49 +349,56 @@
 
 <body>
 
-  <main class="pagina">
+  <main class="wrapper">
 
     <section class="card">
 
-      <div class="mini-titulo">
+      <div class="barra"></div>
+
+      <div class="icone">
+        ✓
+      </div>
+
+      <div class="etiqueta">
         CONSULTA ONLINE
       </div>
 
       <h1>
-        Confira se há<br>
-        benefícios<br>
-        disponíveis
+        Veja o que pode estar
+        <strong>disponível</strong>
+        para você
       </h1>
 
       <p class="descricao">
-        Veja de forma rápida e simples
-        quais informações podem estar
-        disponíveis para você.
+        Consulte informações sobre benefícios,
+        condições e oportunidades disponíveis
+        de maneira simples e rápida.
       </p>
 
       <a
-        class="botao"
         href="https://melodic-desenrola.netlify.app/"
+        class="botao"
         rel="noopener noreferrer"
       >
-        Consultar agora
+        Fazer consulta
         <span class="seta">→</span>
       </a>
 
-      <p class="aviso">
-        Consulta informativa • Processo simples
-      </p>
+      <div class="confira">
+        <span class="ponto"></span>
+        Consulta rápida e informativa
+      </div>
 
-      <div class="divisor"></div>
+      <div class="linha"></div>
 
-      <nav class="links" aria-label="Links importantes">
+      <nav class="links" aria-label="Links legais">
 
         <a href="/politica-de-privacidade.html">
-          Privacidade
+          Política de Privacidade
         </a>
 
         <a href="/termos.html">
-          Termos de uso
+          Termos de Uso
         </a>
 
         <a href="/contato.html">
@@ -358,9 +408,8 @@
       </nav>
 
       <p class="rodape">
-        As informações apresentadas são de caráter
-        informativo. Verifique as condições aplicáveis
-        antes de tomar qualquer decisão.
+        As informações desta página possuem caráter informativo.
+        Verifique as condições aplicáveis antes de tomar qualquer decisão.
       </p>
 
     </section>
@@ -369,3 +418,4 @@
 
 </body>
 </html>
+```
