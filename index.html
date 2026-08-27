@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Consulte benefícios disponíveis</title>
+
+  <meta
+    name="description"
+    content="Consulte informações sobre benefícios e descontos disponíveis."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --rosa: #d7196b;
+      --rosa-escuro: #a90f52;
+      --texto: #29212a;
+      --cinza: #77717a;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(91, 32, 63, 0.52),
+          rgba(184, 72, 119, 0.30)
+        ),
+        url("fundo.jpg") center center / cover no-repeat;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        max(18px, env(safe-area-inset-top))
+        16px
+        max(18px, env(safe-area-inset-bottom));
+    }
+
+    .pagina {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .card {
+      width: 100%;
+
+      background: rgba(255, 255, 255, 0.97);
+
+      border-radius: 30px;
+
+      padding: 38px 22px 25px;
+
+      text-align: center;
+
+      box-shadow:
+        0 22px 55px rgba(45, 12, 30, 0.25);
+
+      animation: entrar 0.55s ease-out;
+    }
+
+    @keyframes entrar {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .mini-titulo {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 32px;
+
+      padding: 6px 14px;
+
+      border-radius: 50px;
+
+      background: #fce8f2;
+
+      color: var(--rosa-escuro);
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      color: var(--rosa);
+
+      font-size: 36px;
+
+      line-height: 1.08;
+
+      letter-spacing: -1px;
+
+      font-weight: 800;
+
+      margin-bottom: 20px;
+    }
+
+    .descricao {
+      color: var(--texto);
+
+      font-size: 19px;
+
+      line-height: 1.45;
+
+      margin: 0 auto 30px;
+
+      max-width: 350px;
+    }
+
+    .botao {
+      width: 100%;
+
+      min-height: 68px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      padding: 16px 20px;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #e52a7c,
+          #c81362
+        );
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-size: 21px;
+
+      font-weight: 750;
+
+      box-shadow:
+        0 10px 25px rgba(200, 19, 98, 0.28);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .botao:active {
+      transform: scale(0.98);
+    }
+
+    .seta {
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .aviso {
+      margin-top: 18px;
+
+      color: var(--cinza);
+
+      font-size: 13px;
+
+      line-height: 1.45;
+    }
+
+    .divisor {
+      width: 100%;
+      height: 1px;
+
+      background: #eee8ec;
+
+      margin: 25px 0 18px;
+    }
+
+    .links {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px 18px;
+    }
+
+    .links a {
+      color: #7f3158;
+
+      font-size: 12px;
+
+      text-decoration: none;
+    }
+
+    .links a:active {
+      opacity: 0.65;
+    }
+
+    .rodape {
+      margin-top: 17px;
+
+      color: #a19ba0;
+
+      font-size: 10.5px;
+
+      line-height: 1.5;
+    }
+
+    /* Celulares pequenos */
+
+    @media (max-width: 360px) {
+
+      .card {
+        padding: 31px 18px 21px;
+        border-radius: 26px;
+      }
+
+      .mini-titulo {
+        margin-bottom: 17px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .descricao {
+        font-size: 17px;
+        margin-bottom: 25px;
+      }
+
+      .botao {
+        min-height: 62px;
+        font-size: 19px;
+      }
+    }
+
+    /* Telas maiores */
+
+    @media (min-width: 600px) {
+
+      body {
+        padding: 30px;
+      }
+
+      .pagina {
+        max-width: 500px;
+      }
+
+      .card {
+        padding: 55px 45px 35px;
+        border-radius: 34px;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .descricao {
+        font-size: 21px;
+      }
+
+      .botao {
+        min-height: 74px;
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="pagina">
+
+    <section class="card">
+
+      <div class="mini-titulo">
+        CONSULTA ONLINE
+      </div>
+
+      <h1>
+        Confira se há<br>
+        benefícios<br>
+        disponíveis
+      </h1>
+
+      <p class="descricao">
+        Veja de forma rápida e simples
+        quais informações podem estar
+        disponíveis para você.
+      </p>
+
+      <a
+        class="botao"
+        href="https://melodic-desenrola.netlify.app/"
+        rel="noopener noreferrer"
+      >
+        Consultar agora
+        <span class="seta">→</span>
+      </a>
+
+      <p class="aviso">
+        Consulta informativa • Processo simples
+      </p>
+
+      <div class="divisor"></div>
+
+      <nav class="links" aria-label="Links importantes">
+
+        <a href="/politica-de-privacidade.html">
+          Privacidade
+        </a>
+
+        <a href="/termos.html">
+          Termos de uso
+        </a>
+
+        <a href="/contato.html">
+          Contato
+        </a>
+
+      </nav>
+
+      <p class="rodape">
+        As informações apresentadas são de caráter
+        informativo. Verifique as condições aplicáveis
+        antes de tomar qualquer decisão.
+      </p>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
